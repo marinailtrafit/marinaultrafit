@@ -833,36 +833,36 @@
       <form id="cform" class="space-y-5 fade-in" onsubmit="submitForm(event)">
         <div>
           <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-bold">Nombre Completo *</label>
-          <input type="text" required placeholder="Tu nombre..."
+          <input name="nombre" type="text" required placeholder="Tu nombre..."
             class="neon-input w-full border px-4 py-4 text-sm text-white placeholder-gray-700 transition-all"
             style="background:rgba(5,10,28,.6);border-color:rgba(255,255,255,.1);font-family:'Space Grotesk',sans-serif">
         </div>
         <div>
           <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-bold">WhatsApp / Email *</label>
-          <input type="text" required placeholder="+58 412 000 0000 o tu@email.com"
+          <input name="contacto" type="text" required placeholder="+58 412 000 0000 o tu@email.com"
             class="neon-input w-full border px-4 py-4 text-sm text-white placeholder-gray-700 transition-all"
             style="background:rgba(5,10,28,.6);border-color:rgba(255,255,255,.1);font-family:'Space Grotesk',sans-serif">
         </div>
         <div>
           <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-bold">Objetivo Principal *</label>
-          <select required
+          <select name="objetivo" required
             class="neon-input w-full border px-4 py-4 text-sm text-white appearance-none transition-all"
             style="background:rgba(12,30,53,.98);border-color:rgba(255,255,255,.1);font-family:'Space Grotesk',sans-serif">
             <option value="" disabled selected>Selecciona tu objetivo...</option>
-            <option value="perdida">Pérdida de grasa</option>
-            <option value="tono">Tonificación y definición</option>
-            <option value="musculo">Ganar músculo y fuerza</option>
-            <option value="salud">Mejorar salud y bienestar</option>
-            <option value="deporte">Rendimiento deportivo</option>
+            <option value="Pérdida de grasa">Pérdida de grasa</option>
+            <option value="Tonificación y definición">Tonificación y definición</option>
+            <option value="Ganar músculo y fuerza">Ganar músculo y fuerza</option>
+            <option value="Mejorar salud y bienestar">Mejorar salud y bienestar</option>
+            <option value="Rendimiento deportivo">Rendimiento deportivo</option>
           </select>
         </div>
         <div>
           <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-bold">Cuéntame sobre ti</label>
-          <textarea rows="4" placeholder="¿Dónde estás ahora? ¿Qué has intentado antes? ¿Por qué ahora?"
+          <textarea name="mensaje" rows="4" placeholder="¿Dónde estás ahora? ¿Qué has intentado antes? ¿Por qué ahora?"
             class="neon-input w-full border px-4 py-4 text-sm text-white placeholder-gray-700 resize-none transition-all"
             style="background:rgba(5,10,28,.6);border-color:rgba(255,255,255,.1);font-family:'Space Grotesk',sans-serif"></textarea>
         </div>
-        <button type="submit"
+        <button type="submit" id="cform-btn"
           class="w-full py-5 font-bebas text-xl tracking-widest text-black uppercase transition-all duration-300 hover:scale-[1.02] hover:opacity-90"
           style="background:#C9890A">QUIERO MI CAMBIO →</button>
         <p class="text-gray-700 text-xs text-center">Tu información es confidencial. Solo Esther Marina la verá.</p>
@@ -1450,16 +1450,39 @@ document.querySelectorAll('.mlink').forEach(l => l.addEventListener('click', () 
   tog.querySelectorAll('.hline').forEach(x => { x.style.transform=''; x.style.opacity=''; x.style.width=''; });
 }));
 
-/* ---- CONTACT FORM ---- */
+/* ---- CONTACT FORM (Formspree) ---- */
 function submitForm(e) {
   e.preventDefault();
-  document.getElementById('cform').classList.add('hidden');
-  document.getElementById('form-ok').classList.remove('hidden');
+  const btn = document.getElementById('cform-btn');
+  btn.textContent = 'ENVIANDO...';
+  btn.disabled = true;
+  btn.style.opacity = '.6';
+  fetch('https://formspree.io/f/xlgkkwdq', {
+    method: 'POST',
+    body: new FormData(e.target),
+    headers: { 'Accept': 'application/json' }
+  }).then(r => {
+    if (r.ok) {
+      document.getElementById('cform').classList.add('hidden');
+      document.getElementById('form-ok').classList.remove('hidden');
+    } else {
+      btn.textContent = 'QUIERO MI CAMBIO →';
+      btn.disabled = false; btn.style.opacity = '1';
+      alert('Error al enviar. Intenta de nuevo.');
+    }
+  }).catch(() => {
+    btn.textContent = 'QUIERO MI CAMBIO →';
+    btn.disabled = false; btn.style.opacity = '1';
+    alert('Error de conexión. Intenta de nuevo.');
+  });
 }
 function resetForm() {
   document.getElementById('cform').classList.remove('hidden');
   document.getElementById('form-ok').classList.add('hidden');
   document.getElementById('cform').reset();
+  const btn = document.getElementById('cform-btn');
+  btn.textContent = 'QUIERO MI CAMBIO →';
+  btn.disabled = false; btn.style.opacity = '1';
 }
 
 /* ---- INTERSECTION OBSERVER ---- */
