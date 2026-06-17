@@ -1,0 +1,1507 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DALE DURO — Esther Marina Urdaneta González</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            neon: '#C9890A',
+            epink: '#9B1C1C',
+            dark: '#0C1E35',
+            card: '#0E1C30',
+          },
+          fontFamily: {
+            bebas: ['Bebas Neue', 'sans-serif'],
+            grotesk: ['Space Grotesk', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #0C1E35; }
+    ::-webkit-scrollbar-thumb { background: #C9890A; border-radius: 2px; }
+    html { scroll-behavior: smooth; }
+    body {
+      color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+      background:
+        linear-gradient(to bottom,
+          #060f1c 0%, #0d2240 28%, #1a3a5c 50%,
+          #2d1a05 75%, #3e1e00 100%) fixed;
+      background-attachment: fixed;
+    }
+
+    .glass-nav {
+      background: rgba(6,12,24,0.90);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(201,137,10,0.18);
+    }
+
+    .hero-bg {
+      background:
+        radial-gradient(ellipse at 62% 88%, rgba(190,95,0,0.55) 0%, transparent 50%),
+        radial-gradient(ellipse at 82% 38%, rgba(201,137,10,0.22) 0%, transparent 38%),
+        radial-gradient(ellipse at 18% 30%, rgba(29,95,165,0.22) 0%, transparent 42%),
+        radial-gradient(ellipse at 50% 5%,  rgba(6,16,40,0.7)    0%, transparent 55%),
+        linear-gradient(to bottom, #060f1c 0%, #0d2240 30%, #1a3a5c 55%, #2d1a05 80%, #3e1e00 100%);
+    }
+
+    /* ── LAZO DORADO decorativo ── */
+    .lasso-ring {
+      position: absolute; border-radius: 50%; pointer-events: none;
+      border: 2px solid rgba(201,137,10,0.55);
+      box-shadow: 0 0 22px rgba(201,137,10,0.45), inset 0 0 22px rgba(201,137,10,0.12);
+      animation: lasso-glow 2.8s ease-in-out infinite;
+    }
+    .lasso-ring-1 { animation: lasso-glow 2.8s ease-in-out infinite, lasso-spin  14s linear infinite; }
+    .lasso-ring-2 { animation: lasso-glow 2.8s ease-in-out infinite 1.4s, lasso-spin2 10s linear infinite; opacity:.5; }
+    @keyframes lasso-spin  { to { transform: rotate(360deg);  } }
+    @keyframes lasso-spin2 { to { transform: rotate(-360deg); } }
+    @keyframes lasso-glow {
+      0%,100% { box-shadow: 0 0 20px rgba(201,137,10,0.4), inset 0 0 18px rgba(201,137,10,0.1); }
+      50%      { box-shadow: 0 0 40px rgba(201,137,10,0.85),inset 0 0 32px rgba(201,137,10,0.25); }
+    }
+    .glow-neon  { box-shadow: 0 0 24px rgba(201,137,10,0.45); }
+    .glow-pink  { box-shadow: 0 0 24px rgba(155,28,28,0.45); }
+
+    /* Slider */
+    input[type="range"] {
+      -webkit-appearance: none; appearance: none;
+      height: 4px; background: #1a2540; border-radius: 2px; outline: none; cursor: pointer;
+    }
+    input[type="range"]::-webkit-slider-runnable-track {
+      height: 4px; border-radius: 2px;
+      background: linear-gradient(to right, #C9890A var(--pct,0%), #2a2a2a var(--pct,0%));
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 20px; height: 20px; background: #C9890A; border-radius: 50%; cursor: pointer;
+      box-shadow: 0 0 10px rgba(201,137,10,0.6); transition: transform 0.15s, box-shadow 0.15s;
+      margin-top: -8px;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.25); box-shadow: 0 0 20px rgba(201,137,10,0.85);
+    }
+    input[type="range"]::-moz-range-thumb {
+      width: 20px; height: 20px; background: #C9890A; border-radius: 50%; cursor: pointer;
+      box-shadow: 0 0 10px rgba(201,137,10,0.6); border: none;
+    }
+    input[type="range"]::-moz-range-track {
+      height: 4px; border-radius: 2px; background: #1a2540;
+    }
+    input[type="range"]::-moz-range-progress {
+      height: 4px; border-radius: 2px; background: #C9890A;
+    }
+
+    /* Cards */
+    .service-card { transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease; }
+    .service-card:hover { transform: translateY(-8px); }
+    .activity-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .activity-card:hover { transform: translateY(-5px); }
+
+    /* Fade in */
+    .fade-in { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* Modal */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.82); z-index: 1000;
+      backdrop-filter: blur(6px); align-items: center; justify-content: center;
+    }
+    .modal-overlay.active { display: flex; }
+
+    /* Neon input focus */
+    .neon-input:focus {
+      outline: none; border-color: #C9890A !important;
+      box-shadow: 0 0 0 2px rgba(201,137,10,0.18);
+    }
+
+    /* Pulse CTA */
+    @keyframes pulse-neon {
+      0%,100% { box-shadow: 0 0 15px rgba(201,137,10,0.4); }
+      50%      { box-shadow: 0 0 35px rgba(201,137,10,0.85), 0 0 65px rgba(201,137,10,0.3); }
+    }
+    .pulse-neon { animation: pulse-neon 2.5s infinite; }
+
+    /* Check pop */
+    @keyframes pop-in {
+      from { transform: scale(0) rotate(-20deg); opacity: 0; }
+      to   { transform: scale(1) rotate(0);      opacity: 1; }
+    }
+    .pop-in { animation: pop-in 0.45s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+
+    /* Scroll bounce */
+    @keyframes bounce-slow {
+      0%,100% { transform: translateY(0) translateX(-50%); }
+      50%      { transform: translateY(8px) translateX(-50%); }
+    }
+    .bounce-slow { animation: bounce-slow 1.8s infinite; }
+
+    /* Admin panel */
+    .admin-overlay { display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:1100;backdrop-filter:blur(8px);align-items:center;justify-content:center; }
+    .admin-overlay.active { display:flex; }
+    .admin-panel { background:rgba(5,10,20,.98);border:1px solid rgba(201,137,10,.3);width:100%;max-width:560px;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 0 50px rgba(201,137,10,.12); }
+    .admin-input { width:100%;padding:.65rem .9rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:#fff;font-family:'Space Grotesk',sans-serif;font-size:.85rem;outline:none;transition:border-color .2s;box-sizing:border-box; }
+    .admin-input:focus { border-color:#C9890A;box-shadow:0 0 0 2px rgba(201,137,10,.12); }
+    .admin-input::placeholder { color:#444; }
+    .admin-btn-gold { padding:.6rem 1.2rem;background:#C9890A;color:#000;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;border:none;cursor:pointer;transition:opacity .2s; }
+    .admin-btn-gold:hover { opacity:.85; }
+    .admin-btn-outline { padding:.6rem 1.2rem;background:transparent;color:#C9890A;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;border:1px solid rgba(201,137,10,.4);cursor:pointer;transition:all .2s; }
+    .admin-btn-outline:hover { background:rgba(201,137,10,.08); }
+    .admin-btn-red { padding:.5rem .8rem;background:transparent;color:#9B1C1C;font-size:.75rem;font-weight:700;border:1px solid rgba(155,28,28,.3);cursor:pointer;transition:all .2s; }
+    .admin-btn-red:hover { background:rgba(155,28,28,.12); }
+    .admin-act-row { display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border-bottom:1px solid rgba(255,255,255,.05);transition:background .2s; }
+    .admin-act-row:hover { background:rgba(255,255,255,.02); }
+
+    /* Brand logo pulse */
+    @keyframes brand-hash {
+      0%,100% { text-shadow: 0 0 18px rgba(155,28,28,.9), 0 0 40px rgba(155,28,28,.5); color:#9B1C1C; }
+      50%      { text-shadow: 0 0 32px rgba(200,30,30,1),  0 0 65px rgba(155,28,28,.7); color:#e02525; }
+    }
+    @keyframes brand-text {
+      0%,100% { text-shadow: 0 0 18px rgba(201,137,10,.7), 0 0 38px rgba(201,137,10,.3); }
+      50%      { text-shadow: 0 0 32px rgba(201,137,10,1),  0 0 60px rgba(201,137,10,.5); }
+    }
+    .brand-hash { animation: brand-hash 2.5s ease-in-out infinite; }
+    .brand-text { animation: brand-text 2.5s ease-in-out infinite .35s; }
+
+    /* Select dark */
+    select option { background: #0E1C30; color: #fff; }
+  </style>
+</head>
+<body class="antialiased">
+
+<!-- ======================================================
+     NAV
+====================================================== -->
+<nav class="glass-nav fixed top-0 left-0 right-0 z-50 px-6 py-4">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <a href="#" style="text-decoration:none;display:flex;align-items:baseline;gap:10px;line-height:1">
+      <span class="font-bebas brand-hash" style="font-size:2.6rem;color:#9B1C1C;line-height:1">#</span>
+      <span class="font-bebas brand-text" style="font-size:2.2rem;color:#C9890A;letter-spacing:.06em;line-height:1">DALE&nbsp;DURO</span>
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#servicios"    class="text-gray-400 hover:text-white transition-colors text-sm font-medium uppercase tracking-wider">Servicios</a>
+      <a href="#calculadora"  class="text-gray-400 hover:text-white transition-colors text-sm font-medium uppercase tracking-wider">Calculadora</a>
+      <a href="#actividades"  class="text-gray-400 hover:text-white transition-colors text-sm font-medium uppercase tracking-wider">Actividades</a>
+      <a href="#contacto"     class="text-gray-400 hover:text-white transition-colors text-sm font-medium uppercase tracking-wider">Contacto</a>
+            <a href="https://www.tiktok.com/@marinaultrafit" target="_blank" rel="noopener"
+         class="flex items-center gap-2 text-sm font-bold uppercase tracking-wider px-4 py-2 transition-all duration-300"
+         style="background:#010101;color:#fff;border-radius:4px;box-shadow:2px 2px 0 #EE1D52,-2px -2px 0 #69C9D0"
+         onmouseenter="this.style.transform='scale(1.04)';this.style.boxShadow='3px 3px 0 #EE1D52,-3px -3px 0 #69C9D0'"
+         onmouseleave="this.style.transform='scale(1)';this.style.boxShadow='2px 2px 0 #EE1D52,-2px -2px 0 #69C9D0'">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15" height="15" fill="#fff"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.95a8.28 8.28 0 0 0 4.84 1.55V7.05a4.85 4.85 0 0 1-1.07-.36z"/></svg>
+        @marinaultrafit
+      </a>
+            <a href="https://www.instagram.com/marinaultrafit" target="_blank" rel="noopener"
+         class="flex items-center gap-2 text-sm font-bold uppercase tracking-wider px-4 py-2 transition-all duration-300"
+         style="background:linear-gradient(135deg,#f09433,#dc2743,#bc1888);color:#fff;border-radius:4px"
+         onmouseenter="this.style.opacity='.85';this.style.transform='scale(1.04)'"
+         onmouseleave="this.style.opacity='1';this.style.transform='scale(1)'">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15" height="15" fill="#fff"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        @marinaultrafit
+      </a>
+      <a href="#contacto"     id="nav-cta" class="text-sm font-bold uppercase tracking-wider px-5 py-2 border transition-all duration-300"
+         style="border-color:#C9890A;color:#C9890A"
+         onmouseenter="this.style.background='#C9890A';this.style.color='#000'"
+         onmouseleave="this.style.background='transparent';this.style.color='#C9890A'">ÚNETE</a>
+    </div>
+    <button id="menuToggle" class="md:hidden flex flex-col gap-1.5 p-2 focus:outline-none" aria-label="Menú">
+      <span class="hline block w-6 h-0.5 bg-white transition-all duration-300"></span>
+      <span class="hline block w-6 h-0.5 bg-white transition-all duration-300"></span>
+      <span class="hline block w-4 h-0.5 bg-white transition-all duration-300"></span>
+    </button>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-800">
+    <div class="flex flex-col gap-4 pt-4">
+      <a href="#servicios"   class="mlink text-gray-400 hover:text-white text-sm uppercase tracking-wider font-medium">Servicios</a>
+      <a href="#calculadora" class="mlink text-gray-400 hover:text-white text-sm uppercase tracking-wider font-medium">Calculadora</a>
+      <a href="#actividades" class="mlink text-gray-400 hover:text-white text-sm uppercase tracking-wider font-medium">Actividades</a>
+      <a href="#contacto"    class="mlink text-gray-400 hover:text-white text-sm uppercase tracking-wider font-medium">Contacto</a>
+      <a href="#contacto"    class="mlink text-center border text-sm font-bold uppercase tracking-wider px-5 py-2" style="border-color:#C9890A;color:#C9890A">ÚNETE</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ======================================================
+     HERO
+====================================================== -->
+<section id="hero" class="hero-bg relative min-h-screen flex items-center pt-24 overflow-hidden">
+  <!-- Vertical accent lines -->
+  <div class="absolute right-10 top-0 bottom-0 w-px" style="background:linear-gradient(to bottom,transparent,#C9890A 35%,transparent 70%)"></div>
+  <div class="absolute left-0  top-0 bottom-0 w-px" style="background:linear-gradient(to bottom,transparent 10%,rgba(155,28,28,.25) 50%,transparent)"></div>
+
+  <!-- Lasso glow rings (decorativo, estética póster) -->
+  <div class="lasso-ring lasso-ring-1" style="width:420px;height:420px;top:50%;left:55%;transform:translate(-50%,-50%)"></div>
+  <div class="lasso-ring lasso-ring-2" style="width:620px;height:620px;top:50%;left:58%;transform:translate(-50%,-50%)"></div>
+  <!-- Warm floor glow -->
+  <div class="absolute bottom-0 left-0 right-0 h-48" style="background:linear-gradient(to top,rgba(120,50,0,0.35),transparent);pointer-events:none"></div>
+
+  <div class="max-w-7xl mx-auto px-6 w-full pb-20">
+    <div class="grid lg:grid-cols-2 gap-0 items-stretch">
+
+      <!-- Left -->
+      <div class="space-y-8 lg:pr-8">
+        <div class="inline-flex items-center gap-2 border px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest"
+             style="border-color:rgba(201,137,10,.3);color:#C9890A;background:rgba(201,137,10,.05)">
+          <span class="w-2 h-2 rounded-full animate-pulse" style="background:#C9890A"></span>
+          Entrenadora Personal Certificada
+        </div>
+
+        <h1 class="font-bebas leading-none" style="font-size:clamp(3.2rem,8vw,6.8rem)">
+          <span class="block text-white">NO ENTRENAMOS</span>
+          <span class="block" style="color:#C9890A;text-shadow:0 0 30px rgba(201,137,10,.45)">PARA ENCAJAR.</span>
+          <span class="block text-white">ENTRENAMOS PARA</span>
+          <span class="block" style="-webkit-text-stroke:1.5px #C9890A;color:transparent">DESTACAR.</span>
+        </h1>
+        <div class="inline-flex items-center gap-2 mt-1">
+          <div class="w-8 h-px" style="background:#C9890A"></div>
+          <span class="font-bebas text-xl tracking-[.25em]" style="color:#C9890A;text-shadow:0 0 12px rgba(201,137,10,.55)">#DALE DURO 💪</span>
+          <div class="w-8 h-px" style="background:#C9890A"></div>
+        </div>
+
+        <p class="text-gray-400 text-lg leading-relaxed max-w-lg">
+          Hola, soy <span class="text-white font-semibold">Esther Marina</span>. Aquí no hacemos rutinas genéricas.
+          Construimos cuerpos, mentalidad y confianza — con método, disciplina y
+          <span style="color:#9B1C1C">mucha actitud</span>.
+        </p>
+
+        <div class="flex flex-wrap gap-4">
+          <a href="#contacto" class="pulse-neon font-bebas text-xl tracking-widest px-8 py-4 text-black uppercase transition-all hover:scale-105"
+             style="background:#C9890A">[EMPIEZA TU CAMBIO AQUÍ]</a>
+          <a href="#servicios" class="flex items-center gap-2 px-8 py-4 border border-gray-700 text-gray-400 hover:border-white hover:text-white transition-all font-bold uppercase tracking-wider text-sm">
+            Ver Planes <span>→</span>
+          </a>
+        </div>
+
+        <div class="flex gap-10 pt-4 border-t border-gray-800">
+          <div><div class="font-bebas text-3xl" style="color:#C9890A">200+</div><div class="text-xs text-gray-600 uppercase tracking-wider mt-0.5">Clientes</div></div>
+          <div><div class="font-bebas text-3xl text-white">17</div><div class="text-xs text-gray-600 uppercase tracking-wider mt-0.5">Años exp.</div></div>
+          <div><div class="font-bebas text-3xl" style="color:#9B1C1C">92%</div><div class="text-xs text-gray-600 uppercase tracking-wider mt-0.5">Resultados</div></div>
+        </div>
+      </div>
+
+      <!-- Right: Hero photo — MARCO CINEMATOGRÁFICO -->
+      <div class="hidden lg:flex items-center justify-end relative" style="min-height:640px;padding:2rem 0 2rem 1.5rem">
+
+        <!-- Glow ambiental detrás del marco -->
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(201,137,10,.18) 0%,transparent 65%);filter:blur(28px);pointer-events:none"></div>
+
+        <!-- Wrapper externo para las esquinas (fuera del clip) -->
+        <div style="position:relative;width:100%;max-width:460px;height:580px">
+
+          <!-- ── MARCO DORADO multicapa ── -->
+          <!-- Sombra exterior con glow dorado + rojo -->
+          <div style="position:absolute;inset:0;
+            box-shadow:
+              0 0 0 1px rgba(201,137,10,.7),
+              0 0 20px rgba(201,137,10,.35),
+              0 0 50px rgba(201,137,10,.15),
+              6px 6px 0 0 rgba(155,28,28,.5),
+              -2px -2px 0 0 rgba(201,137,10,.3);
+            clip-path:polygon(0 0,100% 0,100% calc(100% - 44px),calc(100% - 44px) 100%,0 100%);
+            pointer-events:none;z-index:5"></div>
+
+          <!-- Foto con clip-path diagonal en esquina inferior-derecha -->
+          <div style="position:absolute;inset:0;overflow:hidden;
+            clip-path:polygon(0 0,100% 0,100% calc(100% - 44px),calc(100% - 44px) 100%,0 100%)">
+            <img src="Esther/4.jpeg" alt="Esther Marina — Entrenadora Personal"
+              style="width:100%;height:100%;object-fit:cover;object-position:50% 18%;
+                filter:contrast(1.1) brightness(.98) saturate(1.2) sepia(.08)">
+
+            <!-- Fade izquierdo — se funde con el texto -->
+            <div style="position:absolute;top:0;left:0;bottom:0;width:140px;background:linear-gradient(to right,rgba(6,15,28,.95),transparent)"></div>
+            <!-- Fade inferior -->
+            <div style="position:absolute;bottom:0;left:0;right:0;height:130px;background:linear-gradient(to top,rgba(6,15,28,.9),transparent)"></div>
+            <!-- Vignette cálida (imita el póster) -->
+            <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,transparent 50%,rgba(30,10,0,.45) 100%)"></div>
+            <!-- Warm floor glow foto -->
+            <div style="position:absolute;bottom:0;left:0;right:0;height:200px;background:linear-gradient(to top,rgba(120,50,0,.30),transparent)"></div>
+
+            <!-- Raya roja carmesí — izquierda (acento armadura) -->
+            <div style="position:absolute;left:0;top:15%;bottom:15%;width:3px;
+              background:linear-gradient(to bottom,transparent,#9B1C1C 35%,#9B1C1C 65%,transparent);
+              box-shadow:0 0 12px rgba(155,28,28,.8),0 0 24px rgba(155,28,28,.4)"></div>
+          </div>
+
+          <!-- ── ESQUINAS ORNAMENTALES ── -->
+          <!-- Superior izquierda (dorada) -->
+          <div style="position:absolute;top:-2px;left:-2px;width:40px;height:40px;
+            border-top:3px solid #C9890A;border-left:3px solid #C9890A;z-index:6;
+            box-shadow:0 0 14px rgba(201,137,10,.8),-3px -3px 8px rgba(201,137,10,.3)"></div>
+          <!-- Superior derecha (dorada) -->
+          <div style="position:absolute;top:-2px;right:-2px;width:40px;height:40px;
+            border-top:3px solid #C9890A;border-right:3px solid #C9890A;z-index:6;
+            box-shadow:0 0 14px rgba(201,137,10,.8),3px -3px 8px rgba(201,137,10,.3)"></div>
+          <!-- Inferior izquierda (carmesí) -->
+          <div style="position:absolute;bottom:-2px;left:-2px;width:40px;height:40px;
+            border-bottom:3px solid #9B1C1C;border-left:3px solid #9B1C1C;z-index:6;
+            box-shadow:0 0 14px rgba(155,28,28,.7),-3px 3px 8px rgba(155,28,28,.3)"></div>
+          <!-- Inferior derecha: diagonal → azul (tercer color WW) -->
+          <div style="position:absolute;bottom:40px;right:-2px;width:3px;height:40px;
+            background:#1D5FA5;z-index:6;box-shadow:0 0 10px rgba(29,95,165,.7)"></div>
+          <div style="position:absolute;bottom:-2px;right:40px;height:3px;width:40px;
+            background:#1D5FA5;z-index:6;box-shadow:0 0 10px rgba(29,95,165,.7)"></div>
+
+          <!-- ── LINE TOP decorativa (oro) ── -->
+          <div style="position:absolute;top:-2px;left:44px;right:44px;height:1px;
+            background:linear-gradient(to right,rgba(201,137,10,.3),rgba(201,137,10,.9) 50%,rgba(201,137,10,.3));
+            z-index:6"></div>
+
+          <!-- ── BADGE superior derecha ── -->
+          <div style="position:absolute;top:1.2rem;right:1.2rem;padding:.35rem .85rem;z-index:7;
+            font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;
+            background:rgba(0,0,0,.55);border:1px solid rgba(201,137,10,.55);color:#C9890A;
+            backdrop-filter:blur(4px);box-shadow:0 0 12px rgba(201,137,10,.3)">
+            #DALE DURO 💪
+          </div>
+
+          <!-- ── BADGE lateral rojo ── -->
+          <div style="position:absolute;top:3.8rem;right:1.2rem;padding:.35rem .85rem;z-index:7;
+            font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;
+            background:rgba(0,0,0,.55);border:1px solid rgba(155,28,28,.55);color:#9B1C1C;
+            backdrop-filter:blur(4px)">
+            #DALE DURO ⚡
+          </div>
+
+          <!-- ── NAME TAG inferior ── -->
+          <div style="position:absolute;bottom:1.6rem;left:1.6rem;z-index:7">
+            <!-- Línea decorativa gold -->
+            <div style="width:32px;height:2px;background:#C9890A;margin-bottom:.5rem;box-shadow:0 0 8px rgba(201,137,10,.8)"></div>
+            <div class="font-bebas text-2xl text-white" style="text-shadow:0 2px 12px rgba(0,0,0,.9);letter-spacing:.05em">Esther Marina</div>
+            <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.22em;color:#C9890A;margin-top:.2rem">
+              Entrenadora Personal · 17 Años
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="bounce-slow absolute bottom-8 left-1/2 flex flex-col items-center gap-2">
+    <span class="text-xs text-gray-700 uppercase tracking-widest">Scroll</span>
+    <div class="w-px h-8" style="background:linear-gradient(to bottom,#C9890A,transparent)"></div>
+  </div>
+</section>
+
+<!-- ======================================================
+     STATS BAND
+====================================================== -->
+<section style="background:rgba(6,14,28,0.78);border-top:1px solid rgba(201,137,10,.15);border-bottom:1px solid rgba(201,137,10,.15);backdrop-filter:blur(6px)">
+  <div class="max-w-7xl mx-auto px-6 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <div class="fade-in"><div class="font-bebas text-5xl" style="color:#C9890A">+200</div><div class="text-gray-500 text-sm uppercase tracking-widest mt-1">Clientes Transformad@s</div></div>
+      <div class="fade-in" style="transition-delay:.1s"><div class="font-bebas text-5xl text-white">17 AÑOS</div><div class="text-gray-500 text-sm uppercase tracking-widest mt-1">De Experiencia Certificada</div></div>
+      <div class="fade-in" style="transition-delay:.2s"><div class="font-bebas text-5xl" style="color:#9B1C1C">92%</div><div class="text-gray-500 text-sm uppercase tracking-widest mt-1">Resultados en 90 Días</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     SOBRE ESTHER
+====================================================== -->
+<section style="background:rgba(6,12,24,0.75);border-top:1px solid rgba(201,137,10,.1);border-bottom:1px solid rgba(201,137,10,.1);backdrop-filter:blur(4px)">
+  <div class="py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+        <!-- Photo col -->
+        <div class="fade-in relative flex justify-center lg:justify-start">
+          <div style="position:relative;max-width:400px;width:100%;height:520px">
+
+            <!-- Glow ambiental -->
+            <div style="position:absolute;inset:-20px;background:radial-gradient(ellipse at 50% 50%,rgba(201,137,10,.15) 0%,transparent 70%);filter:blur(20px);pointer-events:none"></div>
+
+            <!-- Foto con clip-path: esquina superior-izquierda cortada -->
+            <div style="position:absolute;inset:0;overflow:hidden;
+              clip-path:polygon(36px 0,100% 0,100% 100%,0 100%,0 36px)">
+              <img src="Esther/18.jpeg" alt="Esther Marina sonriendo"
+                style="width:100%;height:100%;object-fit:cover;object-position:center top;
+                  filter:contrast(1.08) brightness(1.0) saturate(1.2) sepia(.06)">
+              <!-- Warm vignette -->
+              <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,transparent 45%,rgba(20,8,0,.4) 100%)"></div>
+              <!-- Bottom fade -->
+              <div style="position:absolute;bottom:0;left:0;right:0;height:100px;background:linear-gradient(to top,rgba(6,12,22,.85),transparent)"></div>
+            </div>
+
+            <!-- Borde dorado con glow (sigue el clip-path) -->
+            <div style="position:absolute;inset:0;pointer-events:none;
+              clip-path:polygon(36px 0,100% 0,100% 100%,0 100%,0 36px);
+              box-shadow:0 0 0 1px rgba(201,137,10,.65),0 0 18px rgba(201,137,10,.25),0 0 40px rgba(201,137,10,.1)"></div>
+
+            <!-- Esquina sup-izq: diagonal azul (donde está el corte) -->
+            <div style="position:absolute;top:0;left:32px;width:3px;height:38px;
+              background:#1D5FA5;transform:rotate(-45deg);transform-origin:bottom left;
+              box-shadow:0 0 10px rgba(29,95,165,.8);z-index:4"></div>
+
+            <!-- Esquinas doradas -->
+            <div style="position:absolute;top:-1px;right:-1px;width:36px;height:36px;
+              border-top:3px solid #C9890A;border-right:3px solid #C9890A;z-index:4;
+              box-shadow:0 0 12px rgba(201,137,10,.7)"></div>
+            <div style="position:absolute;bottom:-1px;left:-1px;width:36px;height:36px;
+              border-bottom:3px solid #C9890A;border-left:3px solid #C9890A;z-index:4;
+              box-shadow:0 0 12px rgba(201,137,10,.7)"></div>
+            <!-- Esquina inf-der: carmesí -->
+            <div style="position:absolute;bottom:-1px;right:-1px;width:36px;height:36px;
+              border-bottom:3px solid #9B1C1C;border-right:3px solid #9B1C1C;z-index:4;
+              box-shadow:0 0 12px rgba(155,28,28,.7)"></div>
+
+            <!-- Raya roja derecha -->
+            <div style="position:absolute;right:-3px;top:60px;bottom:60px;width:3px;
+              background:linear-gradient(to bottom,transparent,#9B1C1C 35%,#9B1C1C 65%,transparent);
+              box-shadow:0 0 10px rgba(155,28,28,.7);z-index:4"></div>
+
+            <!-- Offset shadow frame (decorativo, detrás) -->
+            <div style="position:absolute;top:12px;left:12px;right:-12px;bottom:-12px;
+              border:1px solid rgba(201,137,10,.18);z-index:-1;pointer-events:none"></div>
+          </div>
+        </div>
+
+        <!-- Text col -->
+        <div class="fade-in space-y-7" style="transition-delay:.15s">
+          <div>
+            <span class="text-xs uppercase tracking-[.4em] font-bold" style="color:#C9890A">// SOBRE MÍ</span>
+            <h2 class="font-bebas mt-3 text-white" style="font-size:clamp(2.5rem,5vw,4.2rem);line-height:.9">
+              SOY ESTHER.<br/>
+              <span style="color:#C9890A">Y EL CAMBIO<br/>EMPIEZA HOY.</span>
+            </h2>
+          </div>
+
+          <p class="text-gray-400 leading-relaxed">
+            Con <span class="text-white font-semibold">17 años de experiencia</span> transformando cuerpos y mentalidades, sé exactamente qué necesitas para dejar de buscar excusas y empezar a ver resultados. No hago promesas vacías — hago programas que funcionan.
+          </p>
+          <p class="text-gray-500 leading-relaxed text-sm">
+            Entrenadora certificada, apasionada del fitness funcional, la fuerza y la nutrición inteligente. Mi filosofía es simple: <span class="text-white">#DaleDuro</span> con método, consistencia y sin rendirse. Cada cliente es un proyecto único y lo trato así.
+          </p>
+
+          <!-- Mini credentials -->
+          <div class="grid grid-cols-2 gap-4 pt-2">
+            <div style="border:1px solid rgba(201,137,10,.15);padding:1rem">
+              <div class="font-bebas text-2xl" style="color:#C9890A">Certificada</div>
+              <div class="text-gray-600 text-xs uppercase tracking-wider mt-0.5">Entrenamiento Personal</div>
+            </div>
+            <div style="border:1px solid rgba(201,137,10,.15);padding:1rem">
+              <div class="font-bebas text-2xl" style="color:#C9890A">Nutrición</div>
+              <div class="text-gray-600 text-xs uppercase tracking-wider mt-0.5">Deportiva Aplicada</div>
+            </div>
+            <div style="border:1px solid rgba(155,28,28,.12);padding:1rem">
+              <div class="font-bebas text-2xl" style="color:#9B1C1C">HIIT & Fuerza</div>
+              <div class="text-gray-600 text-xs uppercase tracking-wider mt-0.5">Especialización</div>
+            </div>
+            <div style="border:1px solid rgba(155,28,28,.12);padding:1rem">
+              <div class="font-bebas text-2xl" style="color:#9B1C1C">Online & Presencial</div>
+              <div class="text-gray-600 text-xs uppercase tracking-wider mt-0.5">Modalidades</div>
+            </div>
+          </div>
+
+          <a href="#contacto" class="inline-flex items-center gap-3 px-7 py-4 font-bebas text-lg tracking-widest text-black transition-all hover:scale-105"
+             style="background:#C9890A">TRABAJA CONMIGO →</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     SERVICIOS
+====================================================== -->
+<section id="servicios" class="py-24 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-16 fade-in">
+      <span class="text-xs uppercase tracking-[.4em] font-bold" style="color:#C9890A">// PLANES</span>
+      <h2 class="font-bebas mt-3 text-white" style="font-size:clamp(2.8rem,6vw,5rem);line-height:.9">
+        ELIGE TU<br/>
+        <span style="-webkit-text-stroke:1px rgba(255,255,255,.4);color:transparent">CAMINO.</span>
+      </h2>
+      <p class="text-gray-500 mt-4 max-w-lg text-base">Tres formas de trabajar conmigo. Todas con el mismo objetivo: que seas la mejor versión de ti.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+
+      <!-- GLOW -->
+      <div class="service-card fade-in relative p-8" style="background:rgba(8,16,32,0.82);border:1px solid rgba(201,137,10,.15);transition-delay:.1s"
+           onmouseenter="this.style.borderColor='rgba(201,137,10,.5)';this.style.boxShadow='0 20px 60px rgba(201,137,10,.1)'"
+           onmouseleave="this.style.borderColor='rgba(201,137,10,.15)';this.style.boxShadow='none'">
+        <div class="absolute top-0 left-0 right-0 h-px" style="background:linear-gradient(to right,#C9890A,transparent)"></div>
+        <div class="font-bebas text-5xl mb-3" style="color:#C9890A">✦</div>
+        <div class="flex items-center gap-2 mb-4">
+          <span class="font-bebas text-2xl text-white">Plan POWER</span>
+          <span class="text-xs px-2 py-0.5 font-bold uppercase" style="background:rgba(201,137,10,.1);color:#C9890A">Tonificación</span>
+        </div>
+        <p class="text-gray-400 text-sm mb-6 leading-relaxed">Define tu cuerpo, gana confianza y brilla. Perfecto para quienes buscan resultados estéticos duraderos sin desgastarse.</p>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-center gap-3 text-sm text-gray-300"><span style="color:#C9890A">—</span> Rutinas de tonificación progresiva</li>
+          <li class="flex items-center gap-3 text-sm text-gray-300"><span style="color:#C9890A">—</span> Plan nutricional personalizado</li>
+          <li class="flex items-center gap-3 text-sm text-gray-300"><span style="color:#C9890A">—</span> Seguimiento semanal vía app</li>
+          <li class="flex items-center gap-3 text-sm text-gray-300"><span style="color:#C9890A">—</span> Acceso a comunidad DALE DURO</li>
+        </ul>
+        <a href="#contacto" class="block w-full text-center py-3 text-sm font-bold uppercase tracking-wider border transition-all duration-300"
+           style="border-color:#C9890A;color:#C9890A"
+           onmouseenter="this.style.background='#C9890A';this.style.color='#000'"
+           onmouseleave="this.style.background='transparent';this.style.color='#C9890A'">Quiero Este Plan →</a>
+      </div>
+
+      <!-- GRIT (featured) -->
+      <div class="service-card fade-in relative p-8" style="background:rgba(8,16,32,0.82);border:1px solid rgba(155,28,28,.4);transition-delay:.2s;transform:scale(1.03)"
+           onmouseenter="this.style.borderColor='rgba(155,28,28,.8)';this.style.boxShadow='0 20px 60px rgba(155,28,28,.15)'"
+           onmouseleave="this.style.borderColor='rgba(155,28,28,.4)';this.style.boxShadow='none'">
+        <div class="absolute top-0 left-0 right-0 h-px" style="background:linear-gradient(to right,#9B1C1C,transparent)"></div>
+        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 text-xs font-bold uppercase tracking-wider" style="background:#9B1C1C;color:#fff;white-space:nowrap">+ Popular</div>
+        <div class="font-bebas text-5xl mb-3" style="color:#9B1C1C">⚡</div>
+        <div class="flex items-center gap-2 mb-4">
+          <span class="font-bebas text-2xl text-white">Plan GRIT</span>
+          <span class="text-xs px-2 py-0.5 font-bold uppercase" style="background:rgba(155,28,28,.1);color:#9B1C1C">Intensidad</span>
+        </div>
+        <p class="text-gray-400 text-sm mb-6 leading-relaxed">Para quienes quieren más. Más fuerza, más potencia, más resultados. Entrenamiento de alta intensidad con estructura y ciencia.</p>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-center gap-3 text-sm text-gray-300"><span style="color:#9B1C1C">—</span> HIIT + entrenamiento de fuerza</li>
+          <li class="flex items-center gap-3 text-sm text-gray-300"><span style="color:#9B1C1C">—</span> Periodización mensual</li>
+          <li class="flex items-center gap-3 text-sm text-gray-300"><span style="color:#9B1C1C">—</span> Nutrición de rendimiento</li>
+          <li class="flex items-center gap-3 text-sm text-gray-300"><span style="color:#9B1C1C">—</span> Chequeo biométrico mensual</li>
+        </ul>
+        <a href="#contacto" class="block w-full text-center py-3 text-sm font-bold uppercase tracking-wider transition-all duration-300"
+           style="background:#9B1C1C;color:#fff"
+           onmouseenter="this.style.boxShadow='0 0 30px rgba(155,28,28,.5)'"
+           onmouseleave="this.style.boxShadow='none'">Quiero Este Plan →</a>
+      </div>
+
+      <!-- VIP -->
+      <div class="service-card fade-in relative p-8" style="background:rgba(8,16,32,0.82);border:1px solid rgba(29,95,165,.15);transition-delay:.3s"
+           onmouseenter="this.style.borderColor='rgba(29,95,165,.5)';this.style.boxShadow='0 20px 60px rgba(29,95,165,.08)'"
+           onmouseleave="this.style.borderColor='rgba(29,95,165,.15)';this.style.boxShadow='none'">
+        <div class="absolute top-0 left-0 right-0 h-px" style="background:linear-gradient(to right,#1D5FA5,transparent)"></div>
+        <div class="font-bebas text-5xl mb-3" style="color:#1D5FA5">👑</div>
+        <div class="flex items-center gap-2 mb-4">
+          <span class="font-bebas text-2xl text-white">Asesoría 1-a-1</span>
+          <span class="text-xs px-2 py-0.5 font-bold uppercase" style="background:rgba(29,95,165,.1);color:#1D5FA5">VIP</span>
+        </div>
+        <p class="text-gray-400 text-sm mb-6 leading-relaxed">Acceso directo a Esther Marina. Sesiones privadas, plan 100% a tu medida y acompañamiento constante para quien no acepta lo promedio.</p>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-center gap-3 text-sm text-gray-300"><span style="color:#1D5FA5">—</span> Sesiones 1-a-1 presenciales/online</li>
+          <li class="flex items-center gap-3 text-sm text-gray-300"><span style="color:#1D5FA5">—</span> Plan ultra-personalizado</li>
+          <li class="flex items-center gap-3 text-sm text-gray-300"><span style="color:#1D5FA5">—</span> WhatsApp directo con Esther</li>
+          <li class="flex items-center gap-3 text-sm text-gray-300"><span style="color:#1D5FA5">—</span> Ajustes en tiempo real</li>
+        </ul>
+        <a href="#contacto" class="block w-full text-center py-3 text-sm font-bold uppercase tracking-wider border transition-all duration-300"
+           style="border-color:#1D5FA5;color:#1D5FA5"
+           onmouseenter="this.style.background='#1D5FA5';this.style.color='#000'"
+           onmouseleave="this.style.background='transparent';this.style.color='#1D5FA5'">Solicitar VIP →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     GALERÍA EN ACCIÓN
+====================================================== -->
+<section style="background:#0C1E35;overflow:hidden">
+  <div class="py-16 px-6">
+    <div class="max-w-7xl mx-auto mb-10 fade-in">
+      <span class="text-xs uppercase tracking-[.4em] font-bold" style="color:#C9890A">// EN ACCIÓN</span>
+      <h2 class="font-bebas mt-2 text-white" style="font-size:clamp(2rem,4vw,3.5rem);line-height:.9">
+        ASÍ SE VE EL <span style="color:#C9890A">TRABAJO REAL.</span>
+      </h2>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+
+      <!-- Foto 1: Cable pulldowns -->
+      <div class="fade-in gallery-item relative overflow-hidden" style="height:420px;transition-delay:.05s">
+        <img src="Esther/WhatsApp Image 2026-06-17 at 11.02.01 AM.jpeg"
+          alt="Esther entrenando en poleas"
+          style="width:100%;height:100%;object-fit:cover;object-position:center top;filter:contrast(1.1) brightness(.95) saturate(1.15);transition:transform .5s ease">
+        <div class="gallery-overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,transparent 50%);opacity:0;transition:opacity .3s">
+          <div style="position:absolute;bottom:1.2rem;left:1.2rem">
+            <div class="font-bebas text-lg text-white">Poleas & Fuerza</div>
+            <div class="text-xs font-bold" style="color:#C9890A">#DaleDuro</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Foto 2: Mancuernas sonriendo -->
+      <div class="fade-in gallery-item relative overflow-hidden" style="height:420px;transition-delay:.1s">
+        <img src="Esther/15.jpeg"
+          alt="Esther con mancuernas sonriendo"
+          style="width:100%;height:100%;object-fit:cover;object-position:center top;filter:contrast(1.08) brightness(.98) saturate(1.2);transition:transform .5s ease">
+        <div class="gallery-overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,transparent 50%);opacity:0;transition:opacity .3s">
+          <div style="position:absolute;bottom:1.2rem;left:1.2rem">
+            <div class="font-bebas text-lg text-white">Actitud & Resultados</div>
+            <div class="text-xs font-bold" style="color:#C9890A">#GlowEnergy</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Foto 3: Kettlebell deadlift -->
+      <div class="fade-in gallery-item relative overflow-hidden" style="height:420px;transition-delay:.15s">
+        <img src="Esther/WhatsApp Image 2026-06-17 at 11.02.03 AM4564.jpeg"
+          alt="Esther haciendo deadlift con kettlebell"
+          style="width:100%;height:100%;object-fit:cover;object-position:center;filter:contrast(1.12) brightness(.93) saturate(1.1);transition:transform .5s ease">
+        <div class="gallery-overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,transparent 50%);opacity:0;transition:opacity .3s">
+          <div style="position:absolute;bottom:1.2rem;left:1.2rem">
+            <div class="font-bebas text-lg text-white">Kettlebell & Potencia</div>
+            <div class="text-xs font-bold" style="color:#9B1C1C">#GritMode</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Foto 4: Pose frontal con mancuernas -->
+      <div class="fade-in gallery-item relative overflow-hidden" style="height:420px;transition-delay:.2s">
+        <img src="Esther/16.jpeg"
+          alt="Esther posando con mancuernas en el gym"
+          style="width:100%;height:100%;object-fit:cover;object-position:center top;filter:contrast(1.1) brightness(.95) saturate(1.15);transition:transform .5s ease">
+        <div class="gallery-overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,transparent 50%);opacity:0;transition:opacity .3s">
+          <div style="position:absolute;bottom:1.2rem;left:1.2rem">
+            <div class="font-bebas text-lg text-white">Fuerza & Estilo</div>
+            <div class="text-xs font-bold" style="color:#C9890A">#GlowAndGrit</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.gallery-item:hover img { transform: scale(1.06); }
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+</style>
+
+<!-- ======================================================
+     CALCULADORA TDEE
+====================================================== -->
+<section id="calculadora" style="background:rgba(6,12,24,0.75);border-top:1px solid rgba(201,137,10,.1);border-bottom:1px solid rgba(201,137,10,.1);backdrop-filter:blur(4px)">
+  <div class="py-24 px-6">
+    <div class="max-w-4xl mx-auto">
+
+      <div class="mb-12 fade-in">
+        <span class="text-xs uppercase tracking-[.4em] font-bold" style="color:#C9890A">// HERRAMIENTA</span>
+        <h2 class="font-bebas mt-3 text-white" style="font-size:clamp(2.5rem,5vw,4.5rem);line-height:.9">
+          CALCULA TUS<br/>
+          <span style="color:#C9890A">CALORÍAS REALES</span>
+        </h2>
+        <p class="text-gray-500 mt-4 text-base max-w-lg">Descubre cuántas calorías necesitas según tu cuerpo y objetivos. Basado en la ecuación Mifflin-St Jeor.</p>
+      </div>
+
+      <div class="fade-in" style="background:rgba(8,16,32,0.82);border:1px solid rgba(201,137,10,.18);padding:2.5rem">
+
+        <!-- Gender -->
+        <div class="mb-8">
+          <label class="block text-xs uppercase tracking-widest text-gray-500 mb-3 font-bold">Género Biológico</label>
+          <div class="flex gap-3">
+            <button id="btn-f" onclick="setGender('f')" class="flex-1 py-3 text-sm font-bold uppercase tracking-wider border transition-all duration-300"
+              style="border-color:#C9890A;color:#C9890A;background:rgba(201,137,10,.1)">Mujer</button>
+            <button id="btn-m" onclick="setGender('m')" class="flex-1 py-3 text-sm font-bold uppercase tracking-wider border transition-all duration-300"
+              style="border-color:rgba(255,255,255,.1);color:#444;background:transparent">Hombre</button>
+          </div>
+        </div>
+
+        <!-- Age / Weight / Height -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div>
+            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-3 font-bold">Edad</label>
+            <div class="flex items-center gap-2" style="background:rgba(5,10,28,.6);border:1px solid rgba(255,255,255,.1);padding:.75rem 1rem">
+              <input id="c-age" type="number" value="25" min="15" max="80"
+                class="neon-input bg-transparent text-white text-xl font-bold w-full focus:outline-none"
+                style="font-family:'Space Grotesk',sans-serif" oninput="calcTDEE()">
+              <span class="text-gray-600 text-sm flex-shrink-0">años</span>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-3 font-bold">
+              Peso: <span id="wv" style="color:#C9890A">65</span> kg
+            </label>
+            <input id="c-w" type="range" min="40" max="150" value="65" class="w-full"
+              oninput="syncSlider(this,'wv','kg');calcTDEE()">
+            <div class="flex justify-between text-xs text-gray-700 mt-1"><span>40kg</span><span>150kg</span></div>
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-3 font-bold">
+              Altura: <span id="hv" style="color:#C9890A">165</span> cm
+            </label>
+            <input id="c-h" type="range" min="140" max="200" value="165" class="w-full"
+              oninput="syncSlider(this,'hv','cm');calcTDEE()">
+            <div class="flex justify-between text-xs text-gray-700 mt-1"><span>140cm</span><span>200cm</span></div>
+          </div>
+        </div>
+
+        <!-- Activity -->
+        <div class="mb-8">
+          <label class="block text-xs uppercase tracking-widest text-gray-500 mb-3 font-bold">Nivel de Actividad</label>
+          <div class="grid grid-cols-2 md:grid-cols-5 gap-2" id="act-btns">
+            <button class="act-btn py-2.5 px-1 text-xs font-bold uppercase border text-center transition-all duration-200"
+              data-m="1.2" onclick="setAct(this)"
+              style="border-color:#C9890A;color:#C9890A;background:rgba(201,137,10,.1)">Sedentario</button>
+            <button class="act-btn py-2.5 px-1 text-xs font-bold uppercase border text-center transition-all duration-200"
+              data-m="1.375" onclick="setAct(this)"
+              style="border-color:rgba(255,255,255,.08);color:#444">Ligero<br/><span class="normal-case font-normal text-gray-700">1–3 días</span></button>
+            <button class="act-btn py-2.5 px-1 text-xs font-bold uppercase border text-center transition-all duration-200"
+              data-m="1.55" onclick="setAct(this)"
+              style="border-color:rgba(255,255,255,.08);color:#444">Moderado<br/><span class="normal-case font-normal text-gray-700">3–5 días</span></button>
+            <button class="act-btn py-2.5 px-1 text-xs font-bold uppercase border text-center transition-all duration-200"
+              data-m="1.725" onclick="setAct(this)"
+              style="border-color:rgba(255,255,255,.08);color:#444">Intenso<br/><span class="normal-case font-normal text-gray-700">6–7 días</span></button>
+            <button class="act-btn py-2.5 px-1 text-xs font-bold uppercase border text-center transition-all duration-200"
+              data-m="1.9" onclick="setAct(this)"
+              style="border-color:rgba(255,255,255,.08);color:#444">Atleta<br/><span class="normal-case font-normal text-gray-700">2× día</span></button>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="text-center py-6 px-4" style="background:rgba(155,28,28,.05);border:1px solid rgba(155,28,28,.2)">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#9B1C1C">Pérdida de Grasa</div>
+            <div id="r-loss" class="font-bebas text-5xl" style="color:#9B1C1C">—</div>
+            <div class="text-gray-600 text-xs mt-1">kcal / día</div>
+            <div class="text-gray-700 text-xs mt-2">TDEE − 500 kcal</div>
+          </div>
+          <div class="text-center py-6 px-4 relative" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1)">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 text-xs font-bold uppercase" style="background:#222;color:#666;white-space:nowrap">Tu TDEE</div>
+            <div class="text-xs uppercase tracking-widest font-bold mb-2 text-gray-400">Mantenimiento</div>
+            <div id="r-main" class="font-bebas text-5xl text-white">—</div>
+            <div class="text-gray-600 text-xs mt-1">kcal / día</div>
+            <div class="text-gray-700 text-xs mt-2">Equilibrio energético</div>
+          </div>
+          <div class="text-center py-6 px-4" style="background:rgba(201,137,10,.05);border:1px solid rgba(201,137,10,.2)">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#C9890A">Ganancia Muscular</div>
+            <div id="r-gain" class="font-bebas text-5xl" style="color:#C9890A">—</div>
+            <div class="text-gray-600 text-xs mt-1">kcal / día</div>
+            <div class="text-gray-700 text-xs mt-2">TDEE + 300 kcal</div>
+          </div>
+        </div>
+
+        <div class="mt-6 text-center">
+          <p class="text-gray-600 text-sm mb-4">¿Quieres que Esther diseñe tu plan nutricional exacto?</p>
+          <a href="#contacto" class="inline-block px-6 py-3 text-sm font-bold uppercase tracking-wider border transition-all"
+             style="border-color:rgba(201,137,10,.3);color:#C9890A"
+             onmouseenter="this.style.background='rgba(201,137,10,.1)'"
+             onmouseleave="this.style.background='transparent'">Obtener Plan Personalizado →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     ACTIVIDADES
+====================================================== -->
+<section id="actividades" class="py-24 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-12 fade-in">
+      <span class="text-xs uppercase tracking-[.4em] font-bold" style="color:#C9890A">// PRÓXIMOS EVENTOS</span>
+      <h2 class="font-bebas mt-3 text-white" style="font-size:clamp(2.5rem,5vw,4.5rem);line-height:.9">
+        ÚNETE A LAS<br/>
+        <span style="-webkit-text-stroke:1px rgba(201,137,10,.55);color:transparent">ACTIVIDADES</span>
+      </h2>
+      <p class="text-gray-500 mt-4 text-base max-w-xl">Clases grupales, retos y talleres. Reserva tu cupo antes de que se agote — los resultados no esperan.</p>
+    </div>
+    <div id="act-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  </div>
+</section>
+
+<!-- ======================================================
+     CONTACTO
+====================================================== -->
+<section id="contacto" style="background:rgba(6,12,24,0.78);border-top:1px solid rgba(201,137,10,.1);backdrop-filter:blur(4px)">
+  <div class="py-24 px-6">
+    <div class="max-w-2xl mx-auto">
+      <div class="mb-12 fade-in">
+        <span class="text-xs uppercase tracking-[.4em] font-bold" style="color:#C9890A">// POSTÚLATE</span>
+        <h2 class="font-bebas mt-3 text-white" style="font-size:clamp(2.5rem,5vw,4.5rem);line-height:.9">
+          DA EL PRIMER<br/>
+          <span style="color:#C9890A">PASO.</span>
+        </h2>
+        <p class="text-gray-500 mt-4 text-base">No es una venta — es una postulación. Cuéntame sobre ti y te contactaré en menos de 24 h.</p>
+      </div>
+
+      <form id="cform" class="space-y-5 fade-in" onsubmit="submitForm(event)">
+        <div>
+          <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-bold">Nombre Completo *</label>
+          <input type="text" required placeholder="Tu nombre..."
+            class="neon-input w-full border px-4 py-4 text-sm text-white placeholder-gray-700 transition-all"
+            style="background:rgba(5,10,28,.6);border-color:rgba(255,255,255,.1);font-family:'Space Grotesk',sans-serif">
+        </div>
+        <div>
+          <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-bold">WhatsApp / Email *</label>
+          <input type="text" required placeholder="+58 412 000 0000 o tu@email.com"
+            class="neon-input w-full border px-4 py-4 text-sm text-white placeholder-gray-700 transition-all"
+            style="background:rgba(5,10,28,.6);border-color:rgba(255,255,255,.1);font-family:'Space Grotesk',sans-serif">
+        </div>
+        <div>
+          <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-bold">Objetivo Principal *</label>
+          <select required
+            class="neon-input w-full border px-4 py-4 text-sm text-white appearance-none transition-all"
+            style="background:rgba(12,30,53,.98);border-color:rgba(255,255,255,.1);font-family:'Space Grotesk',sans-serif">
+            <option value="" disabled selected>Selecciona tu objetivo...</option>
+            <option value="perdida">Pérdida de grasa</option>
+            <option value="tono">Tonificación y definición</option>
+            <option value="musculo">Ganar músculo y fuerza</option>
+            <option value="salud">Mejorar salud y bienestar</option>
+            <option value="deporte">Rendimiento deportivo</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-bold">Cuéntame sobre ti</label>
+          <textarea rows="4" placeholder="¿Dónde estás ahora? ¿Qué has intentado antes? ¿Por qué ahora?"
+            class="neon-input w-full border px-4 py-4 text-sm text-white placeholder-gray-700 resize-none transition-all"
+            style="background:rgba(5,10,28,.6);border-color:rgba(255,255,255,.1);font-family:'Space Grotesk',sans-serif"></textarea>
+        </div>
+        <button type="submit"
+          class="w-full py-5 font-bebas text-xl tracking-widest text-black uppercase transition-all duration-300 hover:scale-[1.02] hover:opacity-90"
+          style="background:#C9890A">QUIERO MI CAMBIO →</button>
+        <p class="text-gray-700 text-xs text-center">Tu información es confidencial. Solo Esther Marina la verá.</p>
+      </form>
+
+      <!-- Success -->
+      <div id="form-ok" class="hidden text-center py-12">
+        <div class="pop-in inline-block font-bebas text-7xl mb-4" style="color:#C9890A;text-shadow:0 0 30px rgba(201,137,10,.5)">✓</div>
+        <h3 class="font-bebas text-3xl text-white mb-3">¡MENSAJE ENVIADO!</h3>
+        <p class="text-gray-400">Esther Marina te contactará en las próximas 24 horas. ¡Prepárate para tu cambio!</p>
+        <button onclick="resetForm()" class="mt-6 px-6 py-3 text-sm font-bold uppercase tracking-wider border transition-all"
+          style="border-color:rgba(201,137,10,.3);color:#C9890A"
+          onmouseenter="this.style.background='rgba(201,137,10,.1)'"
+          onmouseleave="this.style.background='transparent'">Volver al formulario</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     FOOTER
+====================================================== -->
+<footer style="background:rgba(4,8,18,0.90);border-top:1px solid rgba(201,137,10,.12)">
+  <div class="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div style="display:flex;align-items:baseline;gap:1px">
+      <span class="font-bebas" style="font-size:1.7rem;color:#9B1C1C;text-shadow:0 0 12px rgba(155,28,28,.7)">#</span>
+      <span class="font-bebas" style="font-size:1.5rem;color:#C9890A;letter-spacing:.06em;text-shadow:0 0 12px rgba(201,137,10,.5)">DALE DURO</span>
+    </div>
+    <p class="text-gray-700 text-xs text-center">© 2026 Esther Marina Urdaneta González · Todos los derechos reservados</p>
+    <button onclick="openAdmin()" title="Administrar actividades"
+      style="background:none;border:1px solid rgba(255,255,255,.08);color:#333;font-size:.68rem;font-family:'Space Grotesk',sans-serif;cursor:pointer;padding:.3rem .7rem;letter-spacing:.1em;text-transform:uppercase;transition:all .2s"
+      onmouseenter="this.style.borderColor='rgba(201,137,10,.4)';this.style.color='#C9890A'"
+      onmouseleave="this.style.borderColor='rgba(255,255,255,.08)';this.style.color='#333'">⚙ Admin</button>
+    <div class="text-gray-700 text-xs flex items-center gap-1">
+      <span><a href="https://www.instagram.com/marinaultrafit" target="_blank" rel="noopener" style="color:#C9890A;text-decoration:none;font-weight:700" onmouseenter="this.style.textDecoration='underline'" onmouseleave="this.style.textDecoration='none'">@marinaultrafit</a></span>
+      <span class="mx-2 text-gray-800">·</span>
+      <span>Hecho con</span>
+      <span style="color:#9B1C1C" class="mx-0.5">♥</span>
+      <span>y mucho poder · <strong style="color:#C9890A">#DaleDuro</strong> · <strong style="color:#9B1C1C">⚡</strong></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ======================================================
+     MODAL DE REGISTRO
+====================================================== -->
+<div id="modal" class="modal-overlay" onclick="closeModalOuter(event)">
+  <div id="modal-box" style="background:rgba(8,16,32,0.82);border:1px solid rgba(201,137,10,.3);padding:2.5rem;max-width:460px;width:90%;position:relative">
+    <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors text-lg font-light leading-none">✕</button>
+
+    <!-- Form state -->
+    <div id="m-form">
+      <span class="text-xs uppercase tracking-widest font-bold" style="color:#C9890A">// RESERVAR CUPO</span>
+      <h3 id="m-title" class="font-bebas text-3xl text-white mt-2"></h3>
+      <p id="m-sub" class="text-gray-500 text-sm mt-1 mb-6"></p>
+      <form onsubmit="registerActivity(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-bold">Nombre *</label>
+          <input id="m-name" type="text" required placeholder="Tu nombre completo"
+            class="neon-input w-full border border-gray-800 px-4 py-3 text-sm text-white placeholder-gray-700"
+            style="background:rgba(5,10,28,.7);font-family:'Space Grotesk',sans-serif">
+        </div>
+        <div>
+          <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-bold">WhatsApp / Email *</label>
+          <input id="m-contact" type="text" required placeholder="+58 412 000 0000 o email"
+            class="neon-input w-full border border-gray-800 px-4 py-3 text-sm text-white placeholder-gray-700"
+            style="background:rgba(5,10,28,.7);font-family:'Space Grotesk',sans-serif">
+        </div>
+        <button type="submit" class="w-full py-4 font-bebas text-lg tracking-widest text-black uppercase transition-all hover:opacity-90"
+          style="background:#C9890A">CONFIRMAR ASISTENCIA →</button>
+      </form>
+    </div>
+
+    <!-- Success state -->
+    <div id="m-ok" class="hidden text-center py-8">
+      <div class="pop-in inline-block font-bebas text-6xl mb-4" style="color:#C9890A">✓</div>
+      <h3 class="font-bebas text-2xl text-white mb-2">¡CUPO RESERVADO!</h3>
+      <p class="text-gray-400 text-sm">Esther Marina te contactará pronto para confirmar los detalles.</p>
+      <div id="m-wa" class="mt-4"></div>
+      <button onclick="closeModal()" class="mt-5 px-6 py-2 text-sm font-bold uppercase border transition-all"
+        style="border-color:rgba(201,137,10,.3);color:#C9890A"
+        onmouseenter="this.style.background='rgba(201,137,10,.1)'"
+        onmouseleave="this.style.background='transparent'">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================================
+     QR SECTION
+====================================================== -->
+<section style="background:#060E1A;border-top:1px solid rgba(255,255,255,.04);padding:4rem 1.5rem">
+  <div class="max-w-sm mx-auto text-center">
+    <span class="text-xs uppercase tracking-[.4em] font-bold" style="color:#25D366">// WHATSAPP DIRECTO</span>
+    <h3 class="font-bebas text-3xl text-white mt-2 mb-1">ESCRÍBELE A ESTHER</h3>
+    <p class="text-gray-600 text-sm mb-6">Escanea el código QR con tu cámara o haz clic en el botón.</p>
+
+    <!-- QR container -->
+    <div id="qr-box" class="inline-block p-4 mb-6" style="background:#fff;border-radius:4px"></div>
+
+    <div>
+      <a href="https://wa.me/584124111282?text=Hola%20Esther%20Marina%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20tus%20planes%20de%20entrenamiento%20%F0%9F%92%AA"
+         target="_blank" rel="noopener"
+         class="inline-flex items-center gap-3 px-6 py-3 font-bold text-sm uppercase tracking-wider transition-all"
+         style="background:#25D366;color:#fff"
+         onmouseenter="this.style.boxShadow='0 0 24px rgba(37,211,102,.5)'"
+         onmouseleave="this.style.boxShadow='none'">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="18" height="18" fill="#fff">
+          <path d="M24 4C13 4 4 13 4 24c0 3.6 1 7 2.7 10L4 44l10.3-2.7C17.1 43 20.4 44 24 44c11 0 20-9 20-20S35 4 24 4zm0 36c-3.1 0-6.1-.8-8.7-2.4l-.6-.4-6.1 1.6 1.6-5.9-.4-.6C8.8 30.1 8 27.1 8 24 8 15.2 15.2 8 24 8s16 7.2 16 16-7.2 16-16 16zm8.8-11.8c-.5-.2-2.8-1.4-3.2-1.5-.4-.2-.7-.2-1 .2-.3.5-1.2 1.5-1.5 1.8-.3.3-.5.4-1 .1-.5-.2-2-.7-3.8-2.3-1.4-1.2-2.3-2.8-2.6-3.2-.3-.5 0-.7.2-1 .2-.2.5-.5.7-.8.2-.3.3-.5.5-.8.2-.3.1-.6 0-.8-.1-.2-1-2.5-1.4-3.4-.4-.9-.7-.8-1-.8h-.9c-.3 0-.8.1-1.2.6-.4.5-1.6 1.6-1.6 3.8s1.7 4.4 1.9 4.7c.2.3 3.3 5 8 7 1.1.5 2 .8 2.7 1 1.1.3 2.1.3 2.9.2.9-.1 2.8-1.1 3.2-2.2.4-1.1.4-2 .3-2.2-.2-.3-.5-.4-1-.6z"/>
+        </svg>
+        Abrir WhatsApp
+      </a>
+      <p class="text-gray-700 text-xs mt-3">+58 412 411 1282</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     TIKTOK FLOATING BUTTON
+====================================================== -->
+<a href="https://www.tiktok.com/@marinaultrafit" target="_blank" rel="noopener"
+   aria-label="Síguenos en TikTok @marinaultrafit"
+   style="position:fixed;bottom:11.25rem;right:1.75rem;z-index:900;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;
+     background:#010101;
+     box-shadow:3px 3px 0 #EE1D52,-3px -3px 0 #69C9D0,0 4px 20px rgba(0,0,0,.6);
+     transition:transform .2s cubic-bezier(.34,1.56,.64,1),box-shadow .2s"
+   onmouseenter="this.style.transform='scale(1.12)';this.style.boxShadow='4px 4px 0 #EE1D52,-4px -4px 0 #69C9D0,0 6px 28px rgba(0,0,0,.7)'"
+   onmouseleave="this.style.transform='scale(1)';this.style.boxShadow='3px 3px 0 #EE1D52,-3px -3px 0 #69C9D0,0 4px 20px rgba(0,0,0,.6)'">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="#fff">
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.95a8.28 8.28 0 0 0 4.84 1.55V7.05a4.85 4.85 0 0 1-1.07-.36z"/>
+  </svg>
+</a>
+<!-- ======================================================
+     INSTAGRAM FLOATING BUTTON
+====================================================== -->
+<a href="https://www.instagram.com/marinaultrafit" target="_blank" rel="noopener"
+   aria-label="Síguenos en Instagram @marinaultrafit"
+   style="position:fixed;bottom:6.5rem;right:1.75rem;z-index:900;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;
+     background:radial-gradient(circle at 30% 30%,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+     box-shadow:0 4px 20px rgba(220,39,67,.5);transition:transform .2s cubic-bezier(.34,1.56,.64,1),box-shadow .2s"
+   onmouseenter="this.style.transform='scale(1.12)';this.style.boxShadow='0 6px 28px rgba(220,39,67,.75)'"
+   onmouseleave="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(220,39,67,.5)'">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="#fff">
+    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+  </svg>
+</a>
+
+<!-- ======================================================
+     WHATSAPP FLOATING BUTTON
+====================================================== -->
+<a id="wa-fab" href="https://wa.me/584124111282?text=Hola%20Esther%20Marina%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20tus%20planes%20de%20entrenamiento%20%F0%9F%92%AA"
+   target="_blank" rel="noopener"
+   aria-label="Escríbenos por WhatsApp"
+   style="position:fixed;bottom:1.75rem;right:1.75rem;z-index:900;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.55);transition:transform .2s cubic-bezier(.34,1.56,.64,1),box-shadow .2s"
+   onmouseenter="this.style.transform='scale(1.12)';this.style.boxShadow='0 6px 28px rgba(37,211,102,.75)'"
+   onmouseleave="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(37,211,102,.55)'">
+  <!-- WhatsApp SVG icon -->
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="30" height="30" fill="#fff">
+    <path d="M24 4C13 4 4 13 4 24c0 3.6 1 7 2.7 10L4 44l10.3-2.7C17.1 43 20.4 44 24 44c11 0 20-9 20-20S35 4 24 4zm0 36c-3.1 0-6.1-.8-8.7-2.4l-.6-.4-6.1 1.6 1.6-5.9-.4-.6C8.8 30.1 8 27.1 8 24 8 15.2 15.2 8 24 8s16 7.2 16 16-7.2 16-16 16zm8.8-11.8c-.5-.2-2.8-1.4-3.2-1.5-.4-.2-.7-.2-1 .2-.3.5-1.2 1.5-1.5 1.8-.3.3-.5.4-1 .1-.5-.2-2-.7-3.8-2.3-1.4-1.2-2.3-2.8-2.6-3.2-.3-.5 0-.7.2-1 .2-.2.5-.5.7-.8.2-.3.3-.5.5-.8.2-.3.1-.6 0-.8-.1-.2-1-2.5-1.4-3.4-.4-.9-.7-.8-1-.8h-.9c-.3 0-.8.1-1.2.6-.4.5-1.6 1.6-1.6 3.8s1.7 4.4 1.9 4.7c.2.3 3.3 5 8 7 1.1.5 2 .8 2.7 1 1.1.3 2.1.3 2.9.2.9-.1 2.8-1.1 3.2-2.2.4-1.1.4-2 .3-2.2-.2-.3-.5-.4-1-.6z"/>
+  </svg>
+  <!-- Pulse ring -->
+  <span style="position:absolute;inset:0;border-radius:50%;border:2px solid rgba(37,211,102,.6);animation:wa-ring 2s infinite"></span>
+</a>
+
+<style>
+@keyframes wa-ring {
+  0%   { transform:scale(1);   opacity:.8; }
+  70%  { transform:scale(1.5); opacity:0;  }
+  100% { transform:scale(1.5); opacity:0;  }
+}
+</style>
+
+<!-- ======================================================
+     JAVASCRIPT
+====================================================== -->
+<!-- ======================================================
+     ADMIN PANEL MODAL
+====================================================== -->
+<div id="admin-overlay" class="admin-overlay" onclick="if(event.target===this)closeAdmin()">
+  <div class="admin-panel">
+
+    <!-- Header -->
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:1.2rem 1.5rem;border-bottom:1px solid rgba(201,137,10,.2);background:rgba(201,137,10,.05)">
+      <div style="display:flex;align-items:center;gap:.75rem">
+        <span style="font-size:1.2rem">⚙</span>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:#C9890A;letter-spacing:.08em">PANEL DE ACTIVIDADES</span>
+      </div>
+      <button onclick="closeAdmin()" style="background:none;border:none;color:#555;font-size:1.4rem;cursor:pointer;line-height:1;padding:.2rem .5rem" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='#555'">✕</button>
+    </div>
+
+    <!-- VIEW: LOGIN -->
+    <div id="admin-v-login" style="padding:2rem 1.5rem">
+      <p style="color:#666;font-size:.82rem;margin-bottom:1.2rem">Ingresa la contraseña de administración para continuar.</p>
+      <input id="admin-pw" type="password" class="admin-input" placeholder="Contraseña"
+        onkeydown="if(event.key==='Enter')adminLogin()" style="margin-bottom:.75rem">
+      <p id="admin-pw-err" style="color:#9B1C1C;font-size:.75rem;min-height:1rem;margin-bottom:.75rem"></p>
+      <button class="admin-btn-gold" onclick="adminLogin()" style="width:100%">ENTRAR →</button>
+    </div>
+
+    <!-- VIEW: ACTIVITY LIST -->
+    <div id="admin-v-list" class="hidden">
+      <div style="padding:1rem 1.5rem;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:space-between;gap:.75rem">
+        <span style="color:#888;font-size:.78rem">Gestiona las actividades visibles en la página</span>
+        <button class="admin-btn-gold" onclick="adminNewAct()">+ NUEVA</button>
+      </div>
+      <div id="admin-act-list"></div>
+      <div style="padding:1rem 1.5rem;border-top:1px solid rgba(255,255,255,.04);display:flex;justify-content:space-between;align-items:center">
+        <button onclick="adminResetToDefault()" style="background:none;border:none;color:#333;font-size:.72rem;cursor:pointer;text-decoration:underline;font-family:'Space Grotesk',sans-serif"
+          onmouseenter="this.style.color='#555'" onmouseleave="this.style.color='#333'">Restaurar actividades originales</button>
+        <button onclick="adminAuth=false;closeAdmin()" style="background:none;border:none;color:#333;font-size:.72rem;cursor:pointer;font-family:'Space Grotesk',sans-serif"
+          onmouseenter="this.style.color='#9B1C1C'" onmouseleave="this.style.color='#333'">Cerrar sesión</button>
+      </div>
+    </div>
+
+    <!-- VIEW: ADD / EDIT FORM -->
+    <div id="admin-v-form" class="hidden">
+      <div style="padding:1rem 1.5rem;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:.75rem">
+        <button onclick="showAdminView('list')" style="background:none;border:none;color:#C9890A;font-size:1.1rem;cursor:pointer;line-height:1">←</button>
+        <span id="admin-form-title" style="font-family:'Bebas Neue',sans-serif;color:#C9890A;letter-spacing:.06em;font-size:1.1rem">NUEVA ACTIVIDAD</span>
+      </div>
+      <form onsubmit="saveAdminAct(event)" style="padding:1.5rem;display:flex;flex-direction:column;gap:1rem">
+
+        <div style="display:grid;grid-template-columns:1fr auto;gap:.75rem">
+          <div>
+            <label style="font-size:.7rem;color:#666;text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:.4rem">Nombre de la actividad *</label>
+            <input id="af-name" class="admin-input" type="text" placeholder="ej. Bootcamp Quema Total" required>
+          </div>
+          <div>
+            <label style="font-size:.7rem;color:#666;text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:.4rem">Emoji</label>
+            <input id="af-emoji" class="admin-input" type="text" placeholder="🔥" maxlength="2" style="width:60px;text-align:center;font-size:1.2rem">
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem">
+          <div>
+            <label style="font-size:.7rem;color:#666;text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:.4rem">Fecha *</label>
+            <input id="af-date" class="admin-input" type="text" placeholder="ej. Sábado 21 Jun 2026" required>
+          </div>
+          <div>
+            <label style="font-size:.7rem;color:#666;text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:.4rem">Horario</label>
+            <input id="af-time" class="admin-input" type="text" placeholder="ej. 8:00 – 9:30 AM">
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem">
+          <div>
+            <label style="font-size:.7rem;color:#666;text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:.4rem">Modalidad</label>
+            <select id="af-mode" class="admin-input">
+              <option value="Presencial">Presencial</option>
+              <option value="Online">Online</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-size:.7rem;color:#666;text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:.4rem">Cupos totales</label>
+            <input id="af-total" class="admin-input" type="number" min="1" value="20">
+          </div>
+        </div>
+
+        <div>
+          <label style="font-size:.7rem;color:#666;text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:.4rem">Lugar / Link</label>
+          <input id="af-loc" class="admin-input" type="text" placeholder="ej. Parque El Ávila, Caracas · o Zoom (link al registrarse)">
+        </div>
+
+        <div>
+          <label style="font-size:.7rem;color:#666;text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:.4rem">Descripción</label>
+          <textarea id="af-desc" class="admin-input" rows="3" placeholder="Descripción breve de la actividad..." style="resize:vertical;line-height:1.5"></textarea>
+        </div>
+
+        <div>
+          <label style="font-size:.7rem;color:#666;text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:.5rem">Color de la tarjeta</label>
+          <select id="af-color" class="admin-input">
+            <option value="gold">🟡 Dorado</option>
+            <option value="red">🔴 Carmesí</option>
+            <option value="blue">🔵 Azul</option>
+            <option value="green">🟢 Verde</option>
+            <option value="purple">🟣 Morado</option>
+          </select>
+        </div>
+
+        <p id="af-err" style="color:#9B1C1C;font-size:.75rem;min-height:1rem"></p>
+
+        <div style="display:flex;gap:.75rem">
+          <button type="submit" class="admin-btn-gold" style="flex:1">GUARDAR ACTIVIDAD</button>
+          <button type="button" class="admin-btn-outline" onclick="showAdminView('list')">CANCELAR</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* ---- ACTIVITIES DATA ---- */
+const DEFAULT_ACTS = [
+  { id:1, name:'Bootcamp Quema Total', emoji:'🔥', date:'Sábado 21 Jun 2026', time:'8:00 – 9:30 AM',
+    mode:'Presencial', loc:'Parque El Ávila, Caracas',
+    desc:'Sesión de alta intensidad al aire libre. Cardio + fuerza + comunidad. Trae agua y muchas ganas.',
+    total:20, taken:14, ac:'#C9890A', bc:'rgba(201,137,10,.18)' },
+  { id:2, name:'Reto 21 Días DALE DURO', emoji:'✦', date:'Lunes 23 Jun 2026', time:'Inicio de 3 semanas',
+    mode:'Online', loc:'Grupo WhatsApp + Video',
+    desc:'21 días de rutinas, alimentación y mentalidad con Esther guiándote cada día.',
+    total:30, taken:27, ac:'#9B1C1C', bc:'rgba(155,28,28,.2)' },
+  { id:3, name:'Taller: Nutrición Sin Mitos', emoji:'🧠', date:'Miércoles 25 Jun 2026', time:'7:00 – 8:30 PM',
+    mode:'Online', loc:'Zoom (link al registrarse)',
+    desc:'Desmontando los 10 mitos más comunes sobre nutrición fitness. Aprende a comer para rendir.',
+    total:50, taken:22, ac:'#1D5FA5', bc:'rgba(29,95,165,.2)' },
+  { id:4, name:'HIIT Morning Club', emoji:'⚡', date:'Viernes 27 Jun 2026', time:'6:30 – 7:30 AM',
+    mode:'Presencial', loc:'Box Training Caracas',
+    desc:'Una hora de HIIT puro para activar el metabolismo y terminar la semana con todo.',
+    total:15, taken:9, ac:'#C9890A', bc:'rgba(201,137,10,.15)' },
+  { id:5, name:'Yoga & Recuperación Activa', emoji:'🌿', date:'Domingo 29 Jun 2026', time:'10:00 – 11:00 AM',
+    mode:'Online', loc:'Zoom (link al registrarse)',
+    desc:'Porque el descanso también es entrenamiento. Estiramientos guiados, respiración y movilidad.',
+    total:25, taken:8, ac:'#34d399', bc:'rgba(52,211,153,.2)' },
+  { id:6, name:'Masterclass: Mentalidad GRIT', emoji:'👊', date:'Martes 1 Jul 2026', time:'8:00 – 9:30 PM',
+    mode:'Online', loc:'Zoom + Grabación',
+    desc:'Los hábitos mentales que separan a quienes logran sus metas de quienes no.',
+    total:100, taken:41, ac:'#9B1C1C', bc:'rgba(155,28,28,.15)' },
+];
+
+const ACTS_KEY = 'ww_acts';
+let ACTS = (function(){ try { const s=localStorage.getItem(ACTS_KEY); return s?JSON.parse(s):DEFAULT_ACTS; } catch(e){ return DEFAULT_ACTS; } })();
+function saveActs(){ try{ localStorage.setItem(ACTS_KEY, JSON.stringify(ACTS)); }catch(e){} }
+function nextActId(){ return ACTS.length ? Math.max(...ACTS.map(a=>a.id))+1 : 1; }
+
+const COLOR_OPT = {
+  gold:   { ac:'#C9890A', bc:'rgba(201,137,10,.18)' },
+  red:    { ac:'#9B1C1C', bc:'rgba(155,28,28,.2)'   },
+  blue:   { ac:'#1D5FA5', bc:'rgba(29,95,165,.2)'   },
+  green:  { ac:'#34d399', bc:'rgba(52,211,153,.2)'  },
+  purple: { ac:'#a855f7', bc:'rgba(168,85,247,.2)'  },
+};
+
+const registered = new Set();
+let activeActId = null;
+
+function renderActs() {
+  document.getElementById('act-grid').innerHTML = ACTS.map((a, i) => {
+    const left = a.total - a.taken;
+    const pct  = Math.round(a.taken / a.total * 100);
+    const done = registered.has(a.id);
+    const full = left <= 0;
+    const btnHtml = done
+      ? `<button disabled style="width:100%;padding:.75rem;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;background:rgba(201,137,10,.08);color:#C9890A;border:1px solid rgba(201,137,10,.3);cursor:default">✓ REGISTRAD@</button>`
+      : full
+      ? `<button disabled style="width:100%;padding:.75rem;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;background:rgba(255,255,255,.02);color:#444;border:1px solid rgba(255,255,255,.05);cursor:not-allowed">CUPOS AGOTADOS</button>`
+      : `<button onclick="openModal(${a.id})" style="width:100%;padding:.75rem;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;background:${a.ac};color:#000;border:none;cursor:pointer;transition:opacity .2s" onmouseenter="this.style.opacity='.82'" onmouseleave="this.style.opacity='1'">CONFIRMO MI ASISTENCIA →</button>`;
+
+    return `<div class="activity-card fade-in" style="background:rgba(8,16,32,0.82);border:1px solid ${a.bc};padding:1.5rem;position:relative;overflow:hidden;transition-delay:${i*.07}s"
+        onmouseenter="this.style.boxShadow='0 15px 40px ${a.ac}20';this.style.borderColor='${a.ac}55'"
+        onmouseleave="this.style.boxShadow='none';this.style.borderColor='${a.bc}'">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,${a.ac},transparent)"></div>
+      <div style="position:absolute;top:1rem;right:1rem;font-size:.65rem;font-weight:700;padding:.2rem .6rem;text-transform:uppercase;letter-spacing:.1em;background:${a.ac}18;color:${a.ac};border:1px solid ${a.bc}">${a.mode}</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:2.5rem;line-height:1;margin-bottom:.4rem">${a.emoji}</div>
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:#fff;margin-bottom:.3rem">${a.name}</h3>
+      <div style="color:${a.ac};font-size:.78rem;font-weight:700;margin-bottom:.2rem">${a.date} · ${a.time}</div>
+      <div style="color:#555;font-size:.73rem;margin-bottom:.8rem">📍 ${a.loc}</div>
+      <p style="color:#666;font-size:.78rem;line-height:1.55;margin-bottom:1rem">${a.desc}</p>
+      <div style="margin-bottom:1rem">
+        <div style="display:flex;justify-content:space-between;font-size:.68rem;color:#555;margin-bottom:.35rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em">
+          <span>Cupos tomados</span>
+          <span style="color:${left<=3?'#9B1C1C':a.ac}">${left>0?left+' disponibles':'LLENO'}</span>
+        </div>
+        <div style="height:4px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden">
+          <div style="height:100%;width:${pct}%;background:${a.ac};border-radius:2px;transition:width 1s ease"></div>
+        </div>
+      </div>
+      ${btnHtml}
+    </div>`;
+  }).join('');
+  observeFade();
+}
+
+/* ---- MODAL ---- */
+function openModal(id) {
+  activeActId = id;
+  const a = ACTS.find(x => x.id === id);
+  document.getElementById('m-title').textContent = a.name;
+  document.getElementById('m-sub').textContent   = `${a.date} · ${a.time} · ${a.mode}`;
+  document.getElementById('m-name').value    = '';
+  document.getElementById('m-contact').value = '';
+  document.getElementById('m-form').classList.remove('hidden');
+  document.getElementById('m-ok').classList.add('hidden');
+  document.getElementById('modal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modal').classList.remove('active');
+  document.body.style.overflow = '';
+  activeActId = null;
+}
+function closeModalOuter(e) { if (e.target === document.getElementById('modal')) closeModal(); }
+
+function registerActivity(e) {
+  e.preventDefault();
+  const name    = document.getElementById('m-name').value.trim();
+  const contact = document.getElementById('m-contact').value.trim();
+  if (!name || !contact) return;
+  const a = ACTS.find(x => x.id === activeActId);
+  registered.add(activeActId);
+  a.taken = Math.min(a.taken + 1, a.total);
+  document.getElementById('m-form').classList.add('hidden');
+  const ok = document.getElementById('m-ok');
+  ok.classList.remove('hidden');
+  const waMsg = encodeURIComponent(`Hola Esther Marina! Me registré para: *${a.name}* (${a.date} · ${a.time}). Soy ${name}.`);
+  document.getElementById('m-wa').innerHTML =
+    `<a href="https://wa.me/584124111282?text=${waMsg}" target="_blank"
+      style="display:inline-block;padding:.6rem 1.4rem;background:rgba(37,211,102,.12);color:#25D366;border:1px solid rgba(37,211,102,.3);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;text-decoration:none">
+      💬 Confirmar por WhatsApp</a>`;
+  renderActs();
+}
+
+/* ---- ADMIN PANEL ---- */
+const ADMIN_PW = 'daleduro2026';
+let adminAuth = false;
+let adminEditId = null;
+
+function openAdmin(){
+  document.getElementById('admin-overlay').classList.add('active');
+  document.body.style.overflow='hidden';
+  if(adminAuth){ showAdminView('list'); } else { showAdminView('login'); }
+}
+function closeAdmin(){
+  document.getElementById('admin-overlay').classList.remove('active');
+  document.body.style.overflow='';
+}
+function showAdminView(v){
+  ['admin-v-login','admin-v-list','admin-v-form'].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.classList.add('hidden');
+  });
+  document.getElementById('admin-v-'+v).classList.remove('hidden');
+}
+function adminLogin(){
+  const pw=document.getElementById('admin-pw').value;
+  if(pw===ADMIN_PW){ adminAuth=true; showAdminView('list'); renderAdminList(); }
+  else { document.getElementById('admin-pw-err').textContent='Contraseña incorrecta ✗'; }
+}
+function renderAdminList(){
+  document.getElementById('admin-act-list').innerHTML = ACTS.length
+    ? ACTS.map(a=>`
+      <div class="admin-act-row">
+        <span style="font-size:1.5rem;flex-shrink:0">${a.emoji}</span>
+        <div style="flex:1;min-width:0">
+          <div style="font-weight:700;color:#fff;font-size:.85rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${a.name}</div>
+          <div style="font-size:.7rem;color:#666;margin-top:.15rem">${a.date} · ${a.time} · <span style="color:#888">${a.mode}</span></div>
+          <div style="font-size:.68rem;color:#555;margin-top:.1rem">📍 ${a.loc} · ${a.total-a.taken} cupos disp.</div>
+        </div>
+        <button class="admin-btn-outline" onclick="adminEditAct(${a.id})" style="padding:.4rem .7rem;font-size:.7rem;flex-shrink:0">✏ Editar</button>
+        <button class="admin-btn-red" onclick="adminDeleteAct(${a.id})" style="flex-shrink:0">🗑</button>
+      </div>`).join('')
+    : '<p style="color:#444;font-size:.85rem;padding:1.5rem 1rem;text-align:center">No hay actividades. Agrega una arriba.</p>';
+}
+function adminNewAct(){ adminEditId=null; clearAdminForm(); showAdminView('form'); document.getElementById('admin-form-title').textContent='NUEVA ACTIVIDAD'; }
+function adminEditAct(id){
+  adminEditId=id;
+  const a=ACTS.find(x=>x.id===id);
+  document.getElementById('af-name').value=a.name;
+  document.getElementById('af-emoji').value=a.emoji;
+  document.getElementById('af-date').value=a.date;
+  document.getElementById('af-time').value=a.time;
+  document.getElementById('af-mode').value=a.mode;
+  document.getElementById('af-loc').value=a.loc;
+  document.getElementById('af-desc').value=a.desc;
+  document.getElementById('af-total').value=a.total;
+  const colorKey=Object.keys(COLOR_OPT).find(k=>COLOR_OPT[k].ac===a.ac)||'gold';
+  document.getElementById('af-color').value=colorKey;
+  document.getElementById('admin-form-title').textContent='EDITAR ACTIVIDAD';
+  showAdminView('form');
+}
+function clearAdminForm(){
+  ['af-name','af-emoji','af-date','af-time','af-loc','af-desc'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('af-mode').value='Presencial';
+  document.getElementById('af-total').value=20;
+  document.getElementById('af-color').value='gold';
+}
+function saveAdminAct(e){
+  e.preventDefault();
+  const name=document.getElementById('af-name').value.trim();
+  const emoji=document.getElementById('af-emoji').value.trim()||'⚡';
+  const date=document.getElementById('af-date').value.trim();
+  const time=document.getElementById('af-time').value.trim();
+  const mode=document.getElementById('af-mode').value;
+  const loc=document.getElementById('af-loc').value.trim();
+  const desc=document.getElementById('af-desc').value.trim();
+  const total=parseInt(document.getElementById('af-total').value)||20;
+  const col=COLOR_OPT[document.getElementById('af-color').value]||COLOR_OPT.gold;
+  if(!name||!date){ document.getElementById('af-err').textContent='Nombre y fecha son obligatorios.'; return; }
+  document.getElementById('af-err').textContent='';
+  if(adminEditId!==null){
+    const idx=ACTS.findIndex(a=>a.id===adminEditId);
+    if(idx>-1){ ACTS[idx]={...ACTS[idx],name,emoji,date,time,mode,loc,desc,total,...col}; }
+  } else {
+    ACTS.push({id:nextActId(),name,emoji,date,time,mode,loc,desc,total,taken:0,...col});
+  }
+  saveActs();
+  renderActs();
+  renderAdminList();
+  showAdminView('list');
+}
+function adminDeleteAct(id){
+  if(!confirm('¿Eliminar esta actividad?')) return;
+  ACTS=ACTS.filter(a=>a.id!==id);
+  saveActs();
+  renderActs();
+  renderAdminList();
+}
+function adminResetToDefault(){
+  if(!confirm('¿Restaurar las actividades originales? Se borrarán los cambios.')) return;
+  ACTS=JSON.parse(JSON.stringify(DEFAULT_ACTS));
+  saveActs();
+  renderActs();
+  renderAdminList();
+}
+
+/* ---- CALCULATOR ---- */
+let gender = 'f', actMult = 1.2;
+
+function setGender(g) {
+  gender = g;
+  const bf = document.getElementById('btn-f');
+  const bm = document.getElementById('btn-m');
+  [bf, bm].forEach(b => { b.style.borderColor='rgba(255,255,255,.1)'; b.style.color='#444'; b.style.background='transparent'; });
+  const active = g === 'f' ? bf : bm;
+  active.style.borderColor='#C9890A'; active.style.color='#C9890A'; active.style.background='rgba(201,137,10,.1)';
+  calcTDEE();
+}
+
+function setAct(btn) {
+  actMult = parseFloat(btn.dataset.m);
+  document.querySelectorAll('.act-btn').forEach(b => {
+    b.style.borderColor='rgba(255,255,255,.08)'; b.style.color='#444'; b.style.background='transparent';
+  });
+  btn.style.borderColor='#C9890A'; btn.style.color='#C9890A'; btn.style.background='rgba(201,137,10,.1)';
+  calcTDEE();
+}
+
+function syncSlider(el, spanId, unit) {
+  document.getElementById(spanId).textContent = el.value;
+  const min = +el.min, max = +el.max, v = +el.value;
+  el.style.setProperty('--pct', ((v - min)/(max - min)*100) + '%');
+}
+
+function calcTDEE() {
+  const w = +document.getElementById('c-w').value;
+  const h = +document.getElementById('c-h').value;
+  const age = +document.getElementById('c-age').value;
+  if (!age || age < 1) return;
+  const bmr = gender === 'f'
+    ? 10*w + 6.25*h - 5*age - 161
+    : 10*w + 6.25*h - 5*age + 5;
+  const tdee = Math.round(bmr * actMult);
+  animNum('r-loss', tdee - 500);
+  animNum('r-main', tdee);
+  animNum('r-gain', tdee + 300);
+}
+
+function animNum(id, target) {
+  const el = document.getElementById(id);
+  const start = parseInt(el.textContent) || target;
+  const d = target - start, dur = 380, t0 = performance.now();
+  (function tick(now) {
+    const p = Math.min((now - t0) / dur, 1);
+    el.textContent = Math.round(start + d * (1 - Math.pow(1-p, 3)));
+    if (p < 1) requestAnimationFrame(tick);
+  })(performance.now());
+}
+
+/* ---- NAV ---- */
+const tog = document.getElementById('menuToggle');
+const mob = document.getElementById('mobileMenu');
+tog.addEventListener('click', () => {
+  const open = !mob.classList.contains('hidden');
+  mob.classList.toggle('hidden');
+  const lines = tog.querySelectorAll('.hline');
+  if (!open) {
+    lines[0].style.transform = 'rotate(45deg) translate(4px,4px)';
+    lines[1].style.opacity   = '0';
+    lines[2].style.transform = 'rotate(-45deg) translate(3px,-3px)';
+    lines[2].style.width     = '1.5rem';
+  } else {
+    lines.forEach(l => { l.style.transform=''; l.style.opacity=''; l.style.width=''; });
+  }
+});
+document.querySelectorAll('.mlink').forEach(l => l.addEventListener('click', () => {
+  mob.classList.add('hidden');
+  tog.querySelectorAll('.hline').forEach(x => { x.style.transform=''; x.style.opacity=''; x.style.width=''; });
+}));
+
+/* ---- CONTACT FORM ---- */
+function submitForm(e) {
+  e.preventDefault();
+  document.getElementById('cform').classList.add('hidden');
+  document.getElementById('form-ok').classList.remove('hidden');
+}
+function resetForm() {
+  document.getElementById('cform').classList.remove('hidden');
+  document.getElementById('form-ok').classList.add('hidden');
+  document.getElementById('cform').reset();
+}
+
+/* ---- INTERSECTION OBSERVER ---- */
+function observeFade() {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-in:not(.visible)').forEach(el => io.observe(el));
+}
+
+/* ---- INIT ---- */
+document.addEventListener('DOMContentLoaded', () => {
+  renderActs();
+  ['c-w','c-h'].forEach(id => {
+    const el = document.getElementById(id);
+    el.style.setProperty('--pct', ((+el.value - +el.min)/(+el.max - +el.min)*100)+'%');
+  });
+  calcTDEE();
+  observeFade();
+
+  // Generate WhatsApp QR code
+  new QRCode(document.getElementById('qr-box'), {
+    text: 'https://wa.me/584124111282?text=Hola%20Esther%20Marina%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20tus%20planes%20de%20entrenamiento%20%F0%9F%92%AA',
+    width: 180,
+    height: 180,
+    colorDark: '#000000',
+    colorLight: '#ffffff',
+    correctLevel: QRCode.CorrectLevel.M,
+  });
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
